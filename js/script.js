@@ -36,40 +36,61 @@ function anualidad(){
 		}
 	else{
 		alert("no tienes edad suficiente para solicitar un credito!!")
+		alert("Te haremos unas preguntas que te ayudaran a sumar puntos para calificar de todas maneras para el credito")
 		for (let i=1 ;i<=3;i++){
-			alert("Te haremos unas preguntas que te ayudaran a sumar puntos y puede que te ayuden a calificar para el credito")
 			switch (i){
-
-				case 1:	
-					let trabajo = prompt("¿Actualmente trabajas y puedes demotrar ingresos? SI o NO")
-					if (trabajo="SI"){
+				case 1:
+					let trabajo=0
+					while (trabajo !== "SI" && trabajo !== "si" && trabajo !== "Si" &&  trabajo !== "sI" && trabajo !== "NO" && trabajo !== "no" && trabajo !== "No" && trabajo !== "nO"){
+						trabajo = prompt("¿Actualmente trabajas y puedes demotrar ingresos? SI o NO")
+						if(trabajo !== "SI" && trabajo !== "si" && trabajo !== "Si" &&  trabajo !== "sI" && trabajo !== "NO" && trabajo !== "no" && trabajo !== "No" && trabajo !== "nO"){
+							alert("Solo puedes responder SI o NO")
+						}
+						console.log(trabajo)
+					}	
+					if (trabajo == "SI" || trabajo == "si" || trabajo == "Si" ||  trabajo == "sI"){
 						edad = edad+3
 						console.log(edad)
+						console.log(trabajo)
 					}
 					break
 				case 2:
-					let amparo = prompt("Tienes alguien que te ampare financieramente? SI o NO")
-					if (amparo="SI"){
+					let amparo=0
+					while(amparo !== "SI" && amparo !== "si" && amparo !== "Si" &&  amparo !== "sI" && amparo !== "NO" && amparo !== "no" && amparo !== "No" && amparo !== "nO"){
+						amparo = prompt("Tienes alguien que te ampare financieramente? SI o NO")
+						if(amparo !== "SI" && amparo !== "si" && amparo !== "Si" &&  amparo !== "sI" && amparo !== "NO" && amparo !== "no" && amparo !== "No" && amparo !== "nO"){
+							alert("Solo puedes responder SI o NO")
+						}
+						console.log(amparo)
+					}
+					if (amparo == "SI" || amparo == "si" || amparo == "Si" ||  amparo == "sI"){
 						edad = edad+2
 						console.log(edad)
+						console.log(amparo)
 					}
 					break
 				case 3:
-					let historial=prompt("Tienes hitorial crediticio? SI o NO")
-					if (historial="SI"){
+					let historial=0
+					while(historial !== "SI" && historial !== "si" && historial !== "Si" &&  historial !== "sI" && historial !== "NO" && historial !== "no" && historial !== "No" && historial !== "nO"){
+						historial=prompt("Tienes hitorial crediticio? SI o NO")
+						if(historial !== "SI" && historial !== "si" && historial !== "Si" &&  historial !== "sI" && historial !== "NO" && historial !== "no" && historial !== "No" && historial !== "nO"){
+							alert("Solo puedes responder SI o NO")
+						}
+						console.log(historial)
+					}
+					if (historial == "SI" || historial == "si" || historial == "Si" ||  historial == "sI"){
 						edad = edad+1
 						console.log(edad)
+						console.log(historial)
 					}
 					break
 				}
 			if(edad>=18){
 				i=4
 			}
-
 		}
-
 		if(edad>=18){
-			alert("ya cumples la mayoria de edad, puedes acceder al credito")
+			alert("Aunque no cumples la mayoria de edad, tienes los requisitos para acceder al credito")
 			let monto_prestamo = document.getElementById("prestamo").value;
 			let tasa_interes = conversion_tasa_interes(document.getElementById("interes").value);
 			let Numero_cuotas = años_en_meses(document.getElementById("plazo").value);
@@ -78,7 +99,7 @@ function anualidad(){
 			document.getElementById("resultado_final").innerHTML = formatter.format(res)
 		}
 		else{
-			alert("lo sentimos, aunque tienes puntos extras no es suficiente")
+			alert("lo sentimos, aunque tienes puntos extras no es suficiente, no podemos darte el credito")
 		}
 
 	}
